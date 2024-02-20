@@ -44,7 +44,7 @@ jobs:
       working-directory: ${{github.workspace}}/src/FatFsPicoSPI
       run: |
         echo "Patching no-OS-FatFS-SD-SPI-RPi-Pico cmake"
-        git apply ../../FatFsPicoSPI.patch
+        git apply ${{github.workspace}}/FatFsPicoSPI.patch
       shell: bash
 
     - name: Install Doxygen
