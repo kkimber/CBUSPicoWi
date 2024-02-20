@@ -75,11 +75,11 @@ static int handler(void *user, const char *section, const char *name, const char
    }
    else if (MATCH(wifiSection, "wpa_auth"))
    {
-      pconfig->wpaAuth = false; // todo
+      pconfig->wpaAuth = strcasecmp(value, "true") == 0 ? true : false;
    }
    else if (MATCH(wifiSection, "wpa2_auth"))
    {
-      pconfig->wpa2Auth = true; // todo
+      pconfig->wpa2Auth = strcasecmp(value, "true") == 0 ? true : false;
    }
    else if (MATCH(gcSection, "enable"))
    {
@@ -225,8 +225,28 @@ bool CBUSWiFi::InitializeClient()
 
    cyw43_arch_enable_sta_mode();
 
-   // Attempt connection to the WiFi router
-   if (cyw43_arch_wifi_connect_timeout_ms(m_config.ssid, m_config.passwd, CYW43_AUTH_WPA2_AES_PSK, 10000))
+   // Determine required authentication method from configuration
+   // Default is no authentication
+   uint32_t auth = CYW43_AUTH_OPEN;
+
+   if (m_config.wpaAuth)
+   {
+      // WPA Authentication
+      auth = CYW43_AUTH_WPA_TKIP_PSK;
+   }
+   else if (m_config.wpa2Auth)
+   {
+      // WPA2 Authentication
+      auth = CYW43_AUTH_WPA2_AES_PSK;
+   }
+   else if (m_config.wpaAuth && m_config.wpa2Auth)
+   {
+      // WPA/WPA2 Mixed Authentication
+      auth = CYW43_AUTH_WPA2_MIXED_PSK;
+   }
+
+   // Attempt connection to the WiFi router - 10 second timeout
+   if (cyw43_arch_wifi_connect_timeout_ms(m_config.ssid, m_config.passwd, auth, 10000))
    {
       // Failed to connect to WiFi
       return false;

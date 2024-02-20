@@ -43,12 +43,14 @@ if (DOXYGEN_FOUND)
    set(DOXYGEN_HTML_EXTRA_STYLESHEET ${PROJECT_SOURCE_DIR}/doc/doxygen-awesome.css
       ${PROJECT_SOURCE_DIR}/doc/doxygen-awesome-sidebar-only.css
       ${PROJECT_SOURCE_DIR}/doc/doxygen-awesome-sidebar-only-darkmode-toggle.css)
-   set(DOXYGEN_HTML_EXTRA_FILES ${PROJECT_SOURCE_DIR}/doc/doxygen-awesome-darkmode-toggle.js)
+   set(DOXYGEN_HTML_EXTRA_FILES ${PROJECT_SOURCE_DIR}/doc/doxygen-awesome-darkmode-toggle.js
+      ${PROJECT_SOURCE_DIR}/doc/doxygen-awesome-fragment-copy-button.js)
    set(DOXYGEN_HTML_COLORSYTLE LIGHT)
 
    doxygen_add_docs(
       doxygen
       ${PROJECT_SOURCE_DIR}/README.md
+      ${PROJECT_SOURCE_DIR}/doc/config_ini.md
       ${PROJECT_SOURCE_DIR}/doc/cbus.md
       ${PROJECT_SOURCE_DIR}/doc/params.md
       ${PROJECT_SOURCE_DIR}/doc/config.md
