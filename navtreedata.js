@@ -34,25 +34,11 @@ var NAVTREE =
       ] ],
       [ "WiFi Country configuration", "md_doc_config_ini.html#autotoc_md6", null ]
     ] ],
-    [ "CBUS Core", "md_doc_cbus.html", [
-      [ "begin", "md_doc_cbus.html#autotoc_md8", null ],
-      [ "available", "md_doc_cbus.html#autotoc_md9", null ],
-      [ "getNextMessage", "md_doc_cbus.html#autotoc_md10", null ],
-      [ "sendMessage", "md_doc_cbus.html#autotoc_md11", null ],
-      [ "reset", "md_doc_cbus.html#autotoc_md12", null ],
-      [ "Related Classes", "md_doc_cbus.html#autotoc_md13", null ]
-    ] ],
-    [ "CBUS Module Parameters", "md_doc_params.html", [
-      [ "Related Classes", "md_doc_params.html#autotoc_md15", null ]
-    ] ],
-    [ "CBUS Module Configuration", "md_doc_config.html", [
-      [ "Related Classes", "md_doc_config.html#autotoc_md17", null ]
-    ] ],
+    [ "CANPicoWi Web Server", "md_doc_webserver.html", null ],
+    [ "Node Variables", "md_doc_nodevars.html", null ],
     [ "CBUS User Interface", "md_doc_ui.html", [
-      [ "Related Classes", "md_doc_ui.html#autotoc_md19", null ]
-    ] ],
-    [ "CBUS CAN Interfaces", "md_doc_canif.html", [
-      [ "Related Classes", "md_doc_canif.html#autotoc_md21", null ]
+      [ "Switching between SLiM and FLiM modes", "md_doc_ui.html#autotoc_md10", null ],
+      [ "CBUS CAN Traffic indication", "md_doc_ui.html#autotoc_md11", null ]
     ] ],
     [ "Todo List", "todo.html", null ],
     [ "Classes", "annotated.html", [

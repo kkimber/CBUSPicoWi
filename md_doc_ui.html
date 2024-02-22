@@ -99,17 +99,24 @@ $(document).ready(function(){initNavTree('md_doc_ui.html',''); initResizable(); 
 <div class="title">CBUS User Interface </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h1><a class="anchor" id="autotoc_md19"></a>
-Related Classes</h1>
+<div class="textblock"><p>CANPicoWiFi supports the standard CBUS User Interface of a Green LED , Yellow LED and a "FLiM" switch.</p>
 <ul>
-<li><a class="el" href="classCBUSLED.html" title="class to encapsulate a non-blocking LED">CBUSLED</a> class supporting the CBUS SLiM / FLiM and activity LED's</li>
-<li><a class="el" href="classCBUSSwitch.html" title="Class to encapsulate a non-blocking switch class.">CBUSSwitch</a> class supporting the CBUS FLiM switch</li>
+<li>If the Green LED is lit, CANPicoWi is in SLiM mode</li>
+<li>If the Yellow LED is lit, CANPicoWi is in FLiM mode</li>
 </ul>
+<h1><a class="anchor" id="autotoc_md10"></a>
+Switching between SLiM and FLiM modes</h1>
+<p>CANPicoWi can be switched into FLiM mode by pressing and holding the FLiM switch for greater than 6 seconds, after which the Yellow LED should start flashing and any connected FCU or JMRI should indicate a node is requesting configuration as a FLiM module. Once registered in the FCU / JMRI the Yellow LED should stop flashing and should be stead ON.</p>
+<p>Should the module fail to negotiate with the FCU or JMRI, it will timeout and default to SLiM mode.</p>
+<p>You can revert FLiM CANPicoWi to SLiM by once again pressing and holding the FLiM button until the Yellow LED goes OFF and the Green LED comes ON.</p>
+<h1><a class="anchor" id="autotoc_md11"></a>
+CBUS CAN Traffic indication</h1>
+<p>Depending on the SLiM / FLiM state of the module, the other (normally off) LED will indicate activity on the CBUS CAN bus.</p>
 <div class="section_buttons"></div><div class="section_buttons"><table class="markdownTable">
 <tr class="markdownTableHead">
-<th class="markdownTableHeadLeft">Previous   </th><th class="markdownTableHeadRight">Next    </th></tr>
+<th class="markdownTableHeadLeft">Previous    </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft"><a class="el" href="md_doc_config.html">CBUS Module Configuration</a>   </td><td class="markdownTableBodyRight"><a class="el" href="md_doc_canif.html">CBUS CAN Interfaces</a>   </td></tr>
+<td class="markdownTableBodyLeft"><a class="el" href="md_doc_nodevars.html">Node Variables</a>   </td></tr>
 </table>
 </div><div class="section_buttons"></div> </div></div><!-- contents -->
 </div><!-- PageDoc -->
