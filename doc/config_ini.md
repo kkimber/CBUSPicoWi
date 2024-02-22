@@ -11,7 +11,7 @@ The file must be named 'config.ini' and needs to be loaded in the root directory
       ; Modify and write to a FAT formatted SD Card
 
       [wifi]
-      country = UK             ; Country code for WiFi
+      country = GB             ; Country code for WiFi
       ssid = XXXXXXXXX         ; WiFi router SSID
       password = XXXXXXXXXXXX  ; WiFi router password
       wpa_auth = false         ; Enable WiFi WPA authentication [WPA TPIP PSK]
@@ -36,7 +36,7 @@ The default config.ini, as above, is setup to authenticate with the router using
 To connect to a router in open mode, aka no authentication, then set both wpa_auth and wpa2_auth false, i.e.:
 
       [wifi]
-      country = UK             ; Country code for WiFi
+      country = GB             ; Country code for WiFi
       ssid = XXXXXXXXX         ; WiFi router SSID
       password = XXXXXXXXXXXX  ; WiFi router password
       wpa_auth = false         ; Enable WiFi WPA authentication [WPA TPIP PSK]
@@ -47,7 +47,7 @@ To connect to a router in open mode, aka no authentication, then set both wpa_au
 To use the legacy WPA authentication method, set wpa_auth true and wpa2_auth false, i.e.:
 
       [wifi]
-      country = UK             ; Country code for WiFi
+      country = GB             ; Country code for WiFi
       ssid = XXXXXXXXX         ; WiFi router SSID
       password = XXXXXXXXXXXX  ; WiFi router password
       wpa_auth = true          ; Enable WiFi WPA authentication [WPA TPIP PSK]
@@ -58,7 +58,7 @@ To use the legacy WPA authentication method, set wpa_auth true and wpa2_auth fal
 To use mixed WPA/WPA2 authentication, set both wpa_auth and wpa2_auth true, i.e.:
 
       [wifi]
-      country = UK             ; Country code for WiFi
+      country = GB             ; Country code for WiFi
       ssid = XXXXXXXXX         ; WiFi router SSID
       password = XXXXXXXXXXXX  ; WiFi router password
       wpa_auth = true          ; Enable WiFi WPA authentication [WPA TPIP PSK]
@@ -66,22 +66,75 @@ To use mixed WPA/WPA2 authentication, set both wpa_auth and wpa2_auth true, i.e.
 
 ## WiFi Country configuration
 
-The CANPicoWi WiFi configuration is currently hard coded to support UK WiFi frequencies.  The country setting in the config.ini is currently not read and used in firmware.
+The CANPicoWi WiFi configuration is specified by a two character country code in the configuration INI.  Valid country codes are:
 
-\warning **DO NOT** under any circumstances run the default CANPicoWi outside of the UK without modifying the source code to change the country code.  The country code can be set in CBUSWiFi.cpp, around line 220.
+| Country           |Code|
+|-------------------|----|
+| AUSTRALIA         | AU |
+| AUSTRIA           | AT |
+| BELGIUM           | BE |
+| BRAZIL            | BR |
+| CANADA            | CA |
+| CHILE             | CL |
+| CHINA             | CN |
+| COLOMBIA          | CO |
+| CZECH_REPUBLIC    | CZ |
+| DENMARK           | DK |
+| ESTONIA           | EE |
+| FINLAND           | FI |
+| FRANCE            | FR |
+| GERMANY           | DE |
+| GREECE            | GR |
+| HONG_KONG         | HK |
+| HUNGARY           | HU |
+| ICELAND           | IS |
+| INDIA             | IN |
+| ISRAEL            | IL |
+| ITALY             | IT |
+| JAPAN             | JP |
+| KENYA             | KE |
+| LATVIA            | LV |
+| LIECHTENSTEIN     | LI |
+| LITHUANIA         | LT |
+| LUXEMBOURG        | LU |
+| MALAYSIA          | MY |
+| MALTA             | MT |
+| MEXICO            | MX |
+| NETHERLANDS       | NL |
+| NEW_ZEALAND       | NZ |
+| NIGERIA           | NG |
+| NORWAY            | NO |
+| PERU              | PE |
+| PHILIPPINES       | PH |
+| POLAND            | PL |
+| PORTUGAL          | PT |
+| SINGAPORE         | SG |
+| SLOVAKIA          | SK |
+| SLOVENIA          | SI |
+| SOUTH_AFRICA      | ZA |
+| SOUTH_KOREA       | KR |
+| SPAIN             | ES |
+| SWEDEN            | SE |
+| SWITZERLAND       | CH |
+| TAIWAN            | TW |
+| THAILAND          | TH |
+| TURKEY            | TR |
+| UK                | GB |
+| USA               | US |
 
-      // Set the country code 
-      /// @todo setup from INI
-      if (cyw43_arch_init_with_country(CYW43_COUNTRY_UK))
-      {
-         return false;
-      }
+\note
+For Worldwide compatiblity, the country code can be specified as XX, this means the WiFi will operate only on channels 12-14.
 
+\attention
+The CANPicoWi will indicate the status of the WiFi configuration on the PICO-W's LED.  If the LED is steady ON the CANPicoWi is connected to your WiFi router.  if the LED is flashing, then CANPicoWi could not connect to your router.
+
+\warning
+Rebooting of the CANPicoWi may result in the in ability to connect to the WiFi router, this appears to occur because the routers DHCP server rejects the connection as it believes the CANPicoWi is already connected.  If you cannot connect to WiFi after rebooting the CANPicoWi, reset the CANPicoWi again, after which you should be able to connect once more.
 
 <div class="section_buttons">
  
-| Previous                            |            Next |
-|:------------------------------------|----------------:|
-| [Introduction](README.md)           | [CBUS](cbus.md) |
+|                       Next |
+|---------------------------:|
+| [Web Server](webserver.md) |
  
 </div>

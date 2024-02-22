@@ -51,11 +51,9 @@ if (DOXYGEN_FOUND)
       doxygen
       ${PROJECT_SOURCE_DIR}/README.md
       ${PROJECT_SOURCE_DIR}/doc/config_ini.md
-      ${PROJECT_SOURCE_DIR}/doc/cbus.md
-      ${PROJECT_SOURCE_DIR}/doc/params.md
-      ${PROJECT_SOURCE_DIR}/doc/config.md
+      ${PROJECT_SOURCE_DIR}/doc/webserver.md
+      ${PROJECT_SOURCE_DIR}/doc/nodevars.md
       ${PROJECT_SOURCE_DIR}/doc/ui.md
-      ${PROJECT_SOURCE_DIR}/doc/canif.md
       ${PROJECT_SOURCE_DIR}/src
       ${PROJECT_SOURCE_DIR}/doc
       COMMENT "Generate CANPicoWi Docs"

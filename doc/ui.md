@@ -1,15 +1,27 @@
 # CBUS User Interface
 
-## Related Classes
+CANPicoWiFi supports the standard CBUS User Interface of a Green LED , Yellow LED and a "FLiM" switch.
 
-* CBUSLED class supporting the CBUS SLiM / FLiM and activity LED's
-* CBUSSwitch class supporting the CBUS FLiM switch
+  * If the Green LED is lit, CANPicoWi is in SLiM mode
+  * If the Yellow LED is lit, CANPicoWi is in FLiM mode
+
+## Switching between SLiM and FLiM modes
+
+CANPicoWi can be switched into FLiM mode by pressing and holding the FLiM switch for greater than 6 seconds, after which the Yellow LED should start flashing and any connected FCU or JMRI should indicate a node is requesting configuration as a FLiM module.  Once registered in the FCU / JMRI the Yellow LED should stop flashing and should be stead ON.
+
+Should the module fail to negotiate with the FCU or JMRI, it will timeout and default to SLiM mode.
+
+You can revert FLiM CANPicoWi to SLiM by once again pressing and holding the FLiM button until the Yellow LED goes OFF and the Green LED comes ON.
+
+## CBUS CAN Traffic indication
+
+Depending on the SLiM / FLiM state of the module, the other (normally off) LED will indicate activity on the CBUS CAN bus.
 
 <div class="section_buttons">
  
-| Previous                               |                            Next |
-|:---------------------------------------|--------------------------------:|
-| [CBUS Module Configuration](config.md) | [CBUS CAN Interfaces](canif.md) |
+| Previous                      |
+|:------------------------------|
+| [Node Variables](nodevars.md) |
  
 </div>
 

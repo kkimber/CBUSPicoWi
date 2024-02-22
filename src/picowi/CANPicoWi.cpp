@@ -224,6 +224,18 @@ void setup()
    NVs[4] = (wifi.getEdThrottlePort() & 0xFF00) >> 8;  // NV5 Engine Driver Throttle Port upper byte
    NVs[5] = (wifi.getEdThrottlePort() & 0x00FF);       // NV6 Engine Driver Throttle Port lower byte
 
+   // Set country code into NVs from the INI, assuming we have 2 chars or more
+   const char* countryCode = wifi.getCountryCode();
+   if (strlen(countryCode) >= 2)
+   {
+      NVs[6] = countryCode[0];
+      NVs[7] = countryCode[1];
+   }
+
+   // Set NVs for WPA/WPA2 authentication flags
+   NVs[8] = wifi.getWPAEnable();
+   NVs[9] = wifi.getWPA2Enable();
+
    // Block write the NV's from the configuration settings from the SD card
    module_config.writeBytesEEPROM(module_config.EE_NVS_START, NVs, module_config.EE_NUM_NVS);
 

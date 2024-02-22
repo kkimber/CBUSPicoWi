@@ -109,7 +109,7 @@ static int handler(void *user, const char *section, const char *name, const char
 ///// TEST WEB SERVER CODE
 
 // SSI tags - tag length limited to 8 bytes by default
-const char *ssi_tags[] = {"gcenable","gcport","edenable","edport"};
+const char *ssi_tags[] = {"gcenable","gcport","edenable","edport", "country", "authmode"};
 
 u16_t ssi_handler(int iIndex, char *pcInsert, int iInsertLen)
 {
@@ -148,6 +148,35 @@ u16_t ssi_handler(int iIndex, char *pcInsert, int iInsertLen)
    case 3: // Engine Driver Throttle port
    {
       printed = snprintf(pcInsert, iInsertLen, "%d", CBUSWiFi::getEdThrottlePort());
+   }
+   break;
+   case 4: // WiFi country code
+   {
+      printed = snprintf(pcInsert, iInsertLen, "%s", CBUSWiFi::getCountryCode());
+   }
+   break;
+   case 5: // WiFi authentication mode
+   {
+      if (CBUSWiFi::getWPAEnable() && !CBUSWiFi::getWPA2Enable())
+      {
+         // WPA Authentication
+         printed = snprintf(pcInsert, iInsertLen, "%s", "WPA");
+      }
+      else if (!CBUSWiFi::getWPAEnable() && CBUSWiFi::getWPA2Enable())
+      {
+         // WPA2 Authentication
+         printed = snprintf(pcInsert, iInsertLen, "%s", "WPA2");
+      }
+      else if (CBUSWiFi::getWPAEnable() && CBUSWiFi::getWPA2Enable())
+      {
+         // WPA/WPA2 Mixed Authentication
+         printed = snprintf(pcInsert, iInsertLen, "%s", "WPA/WPA2");
+      }
+      else
+      {
+         // Open / No Authentication
+         printed = snprintf(pcInsert, iInsertLen, "%s", "None");
+      }
    }
    break;
    default:
@@ -216,25 +245,41 @@ bool CBUSWiFi::InitializeClient()
       return false;
    }
 
-   // Set the country code 
-   /// @todo setup from INI
-   if (cyw43_arch_init_with_country(CYW43_COUNTRY_UK))
+   // Set the country code - special case for UK
+   uint32_t country = CYW43_COUNTRY_WORLDWIDE;
+   if (strcasecmp(m_config.country, "UK") == 0)
+   {
+      country = CYW43_COUNTRY_UK;
+   }
+   else
+   {
+      // Check for supplied string length, should be two char country code
+      // take first two chars if more are specified
+      if (strlen(m_config.country) >= 2)
+      {
+         country = CYW43_COUNTRY(toupper(m_config.country[0]), toupper(m_config.country[1]), 0);
+      }
+   }
+   
+   // Attempt to initialize with the specified country code
+   if (cyw43_arch_init_with_country(country))
    {
       return false;
    }
 
+   // We're operating in station mode
    cyw43_arch_enable_sta_mode();
 
    // Determine required authentication method from configuration
    // Default is no authentication
    uint32_t auth = CYW43_AUTH_OPEN;
 
-   if (m_config.wpaAuth)
+   if (m_config.wpaAuth && !m_config.wpa2Auth)
    {
       // WPA Authentication
       auth = CYW43_AUTH_WPA_TKIP_PSK;
    }
-   else if (m_config.wpa2Auth)
+   else if (!m_config.wpaAuth && m_config.wpa2Auth)
    {
       // WPA2 Authentication
       auth = CYW43_AUTH_WPA2_AES_PSK;

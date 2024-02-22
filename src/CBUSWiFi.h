@@ -84,7 +84,7 @@ public:
    static bool isGridConnectEnabled(void) { return m_config.gcEnable; };
 
    ///
-   /// @brief Get the Grid Connect Port object
+   /// @brief Get the Grid Connect server port
    /// 
    /// @return uint16_t TCP port number to use for the Grid Connect server
    ///
@@ -99,11 +99,34 @@ public:
    static bool isEdThrottleEnabled(void) { return m_config.edEnable; };
 
    ///
-   /// @brief Get the Ed Throttle Port object
+   /// @brief Get the Ed Throttle service port
    /// 
    /// @return uint16_t TCP port number to use for the Engine Driver Throttle service
    ///
    static uint16_t getEdThrottlePort(void) { return m_config.edPort; };
+
+   ///
+   /// @brief Get the Country Code 
+   /// 
+   /// @return char* Country code as configured in the config INI
+   ///
+   static const char* getCountryCode(void) { return m_config.country; };
+
+   ///
+   /// @brief Get the WPA authentication enable flag
+   /// 
+   /// @return true WPA authentication is enabled
+   /// @return false WPA authentication is disabled
+   ///
+   static bool getWPAEnable(void) { return m_config.wpaAuth; };
+
+   ///
+   /// @brief Get the WPA2 autentication enable flag
+   /// 
+   /// @return true WPA2 authentication is enabled
+   /// @return false WPA2 autentication is disabled
+   ///
+   static bool getWPA2Enable(void) { return m_config.wpa2Auth; };
 
 private:
    /// Configuration data store

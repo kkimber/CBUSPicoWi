@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head> 
+        <title>MERG CANPicoWi</title>
+    </head>
+    <body>
+        <h1>CANPicoWi Web Server</h1>
+        <br>
+        <h2>WiFi Configuration:</h2>
+        <p>Country Code: <!--#country--></p>
+        <p>Authentication: <!--#authmode--></p>
+        <br>
+        <h2>Grid Connect Server:</h2>
+        <p>Enabled: <!--#gcenable--></p>
+        <p>Port: <!--#gcport--></p>
+        <br>
+        <h2>Engine Driver Throttle Service:</h2>
+        <p>Enabled: <!--#edenable--></p>
+        <p>Port: <!--#edport--></p>
+        <br>
+        <a href="/index.shtml">Refresh</a>
+   </body>
+</html>
