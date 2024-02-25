@@ -147,6 +147,13 @@ bool CBUSGridConnect::serverOpen(uint16_t nPort)
    return true;
 }
 
+///
+/// @brief Extract a Grid Connect message from the incoming stream
+/// 
+/// @param state Pointer to the TCP Server
+/// @param nStart Start offset for searching for message
+/// @param p Pointer to pbuf containing data from stream
+///
 void CBUSGridConnect::extractAndQueueGC(TCPServer_t *state, uint16_t nStart, struct pbuf *p)
 {
    // GridConnect start and end frame delimiters
@@ -304,7 +311,15 @@ void CBUSGridConnect::sendCANFrame(const CANFrame &msg)
    }
 }
 
-err_t CBUSGridConnect::serverSend(void *arg, struct tcp_pcb *tpcb, gcMessage_t msg)
+///
+/// @brief Attempts to send a Grid Connect message to a client
+///
+/// @param arg TCP Server state associated with the server accept
+/// @param tpcb Pointer to the TCP control block
+/// @param msg Reference to the Grid Connect message to send
+/// @return Error code
+///
+err_t CBUSGridConnect::serverSend(void *arg, struct tcp_pcb *tpcb, gcMessage_t& msg)
 {
    TCPServer_t *state = static_cast<TCPServer_t *>(arg);
 
@@ -317,19 +332,18 @@ err_t CBUSGridConnect::serverSend(void *arg, struct tcp_pcb *tpcb, gcMessage_t m
 
    if (err == ERR_OK)
    {
-      // Try to force write immediately
+      // Successfully written to stack, now try to force immediate transmit
       err = tcp_output(tpcb);
    }
    else if (err == ERR_MEM)
    {
       // Low on memory to send
-      // Save message to send later - enqueue into a pbuf ??
+      // Save (copy) the message to try to send later (in poll)
       state->bufferSent = msg;
    }
    else
    {
-      // some other error - TODO shutdown??
-      err = serverShutdown(state);
+      // some other problem
    }
 
    // Unlock stack
@@ -339,10 +353,10 @@ err_t CBUSGridConnect::serverSend(void *arg, struct tcp_pcb *tpcb, gcMessage_t m
 }
 
 ///
-/// @brief 
+/// @brief Is there a CAN frame available in the queue
 /// 
-/// @return true 
-/// @return false 
+/// @return true There is a CAN frame in the queue
+/// @return false There isn't a CAN frame available in the queue
 ///
 bool CBUSGridConnect::available()
 {
@@ -355,9 +369,9 @@ bool CBUSGridConnect::available()
 }
 
 ///
-/// @brief 
+/// @brief Retrieve a CAN frame from the queue
 /// 
-/// @return CANFrame 
+/// @return CANFrame CAN Frame from the queue
 ///
 CANFrame CBUSGridConnect::get()
 {
@@ -405,9 +419,8 @@ err_t CBUSGridConnect::serverAccept(void *arg, struct tcp_pcb *pClientCB, err_t 
    tcp_arg(pClientCB, state);
 
    // Specify callback functions
-   tcp_sent(pClientCB, serverSent);
    tcp_recv(pClientCB, serverRecv);
-   // tcp_poll(pClientCB, serverPoll, xx); ///@ todo for client timeouts
+   tcp_poll(pClientCB, serverPoll, 0);
    tcp_err(pClientCB, serverErr);
 
    return ERR_OK;
@@ -437,16 +450,15 @@ err_t CBUSGridConnect::serverRecv(void *arg, struct tcp_pcb *tpcb, struct pbuf *
    {
       // Remote host closed connection
       state->clientState = clientState_t::CS_CLOSING;
-      if (state->p == nullptr)
+      if (state->bufferSent.len == 0)
       {
          // We're done sending, close it
          serverCloseConn(tpcb, state);
       }
       else
       {
-         // we're not done yet TODO
-         // tcp_sent(tpcb, serverSent);
-         // serverSend(state, tpcb, xx)d;
+         // we're not done yet, try sending what's left
+         serverSend(state, tpcb, state->bufferSent);
       }
       retErr = ERR_OK;
    }
@@ -455,8 +467,7 @@ err_t CBUSGridConnect::serverRecv(void *arg, struct tcp_pcb *tpcb, struct pbuf *
       // Cleanup, for unknown reason
       if (p != NULL)
       {
-         state->p = NULL;
-         pbuf_free(p);
+         state->bufferSent.len = 0;
       }
       retErr = err;
    }
@@ -541,36 +552,80 @@ err_t CBUSGridConnect::serverRecv(void *arg, struct tcp_pcb *tpcb, struct pbuf *
    return retErr;
 }
 
+///
+/// @brief Notification of recept of data from remote host (ACK)
+///
+/// @param arg TCP Server state associated with the server providing data
+/// @param tpcb Pointer to TCP control block
+/// @param len Length of data received from previous ACK
+/// @return ERR_OK
+///
 err_t CBUSGridConnect::serverSent(void *arg, struct tcp_pcb *tpcb, u16_t len)
 {
    TCPServer_t *state = static_cast<TCPServer_t *>(arg);
 
    state->sent_len += len;
 
-   if (state->sent_len >= GC_MAX_MSG)
+   if (state->sent_len >= state->bufferSent.len)
    {
-      // We should get the data back from the client
-      state->bufferRecv.len = 0;
+      // Buffer has been fully sent
+      state->bufferSent = {};
+      state->sent_len = 0;
    }
 
    return ERR_OK;
 }
 
+///
+/// @brief Background poll to perform maintenance and force retry of send failures
+///
+/// @param arg TCP Server state associated with the server providing data
+/// @param tpcb Pointer to TCP control block
+/// @return ERR_OK on success
+///
 err_t CBUSGridConnect::serverPoll(void *arg, struct tcp_pcb *tpcb)
 {
-   // @todo - do we want this?
+   err_t retErr;
+
    TCPServer_t *state = static_cast<TCPServer_t *>(arg);
 
-   if (state->bufferSent.len != 0)
+   if (state != NULL)
    {
-      // Install sent notification
-      tcp_sent(state->pClientCB, serverSent);
-      serverSend(state, state->pClientCB, state->bufferSent);
+      // Check to see if we have anything pending to send
+      if (state->bufferSent.len != 0)
+      {
+         // Install sent notification and try to send again
+         tcp_sent(state->pClientCB, serverSent);
+         serverSend(state, state->pClientCB, state->bufferSent);
+      }
+      else
+      {
+         // Close server connection if we're shutting down
+         // @todo WHY CLOSE HERE
+         if (state->clientState == clientState_t::CS_CLOSING)
+         {
+            serverCloseConn(tpcb, state);
+         }
+      }
+
+      retErr =  ERR_OK;
+   }
+   else
+   {
+      // Nothing to do 
+      tcp_abort(tpcb);
+      retErr = ERR_ABRT;
    }
 
-   return ERR_OK;
+   return retErr;
 }
 
+///
+/// @brief Handle errors
+///
+/// @param arg TCP Server state associated with the server providing data
+/// @param err Error to handle
+///
 void CBUSGridConnect::serverErr(void *arg, err_t err)
 {
    TCPServer_t *state = static_cast<TCPServer_t *>(arg);

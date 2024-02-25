@@ -60,7 +60,7 @@ typedef struct
 } config_t;
 
 //
-/// Class to encapsulate a non-blocking switch class
+/// Class to provide WiFi connectivity to CBUS
 //
 
 class CBUSWiFi
@@ -74,6 +74,8 @@ public:
    bool InitializeClient(void);
    bool InitializeAP(void);
    bool InitWebServer(void);
+
+   // Inline Static Methods
 
    ///
    /// @brief Determine if the Grid Connect server should be enabled 

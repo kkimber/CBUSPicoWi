@@ -77,7 +77,6 @@ typedef struct
 {
    struct tcp_pcb *pClientCB; ///< Pointer to Client control block
    clientState_t clientState; ///< Client state
-   struct pbuf *p;            ///< pbuf (chain) to recycle
    gcMessage_t bufferRecv;    ///< Buffer for received GC frames
    gcMessage_t bufferSent;    ///< Buffer for transmitted GC frames
    int sent_len;
@@ -98,7 +97,7 @@ public:
    static void extractAndQueueGC(TCPServer_t *state, uint16_t nStart, struct pbuf *p);
    // Interface for clients to send us frames from CAN
    void sendCANFrame(const CANFrame &msg);
-   static err_t serverSend(void *arg, struct tcp_pcb *tpcb, gcMessage_t msg);
+   static err_t serverSend(void *arg, struct tcp_pcb *tpcb, gcMessage_t& msg);
    // Interface to receive CAN Frames from GridConnect clients
    bool available(void);
    CANFrame get(void);
