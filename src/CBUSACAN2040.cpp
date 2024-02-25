@@ -287,6 +287,19 @@ void CBUSACAN2040::reset(void)
 }
 
 ///
+/// @brief Validate an NV value
+///
+/// @param NVindex Index of the NV to validate
+/// @param oldValue Previous value of the NV
+/// @param NVvalue New value of the NV
+/// @return false to prevent any updates to any NVs
+bool CBUSACAN2040::validateNV(const uint8_t NVindex, const uint8_t oldValue, const uint8_t NVvalue)
+{
+   // ALL NV's are read-only - reject all values
+   return false;
+}
+
+///
 /// @brief Transmit a CAN frame
 /// 
 /// @param msg CAN frame to transmit
