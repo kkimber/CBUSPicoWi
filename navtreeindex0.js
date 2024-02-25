@@ -169,15 +169,16 @@ var NAVTREEINDEX0 =
 "classACAN2040.html#af2d753f2f299f3e44d990c6ca5fd086e":[6,0,0,0],
 "classCBUSACAN2040.html":[6,0,3],
 "classCBUSACAN2040.html#a1f84475644a47735edb46d82541b3aa5":[6,0,3,8],
-"classCBUSACAN2040.html#a248e31c6f5808152d8a3e5ab645fd880":[6,0,3,11],
+"classCBUSACAN2040.html#a248e31c6f5808152d8a3e5ab645fd880":[6,0,3,12],
 "classCBUSACAN2040.html#a285daee6270f8d1612519d2e05332dad":[6,0,3,7],
 "classCBUSACAN2040.html#a367ca216c5f2adfe378e7d1846a9fb76":[6,0,3,9],
 "classCBUSACAN2040.html#a3d95ed70c8028f414c183083b68c7b1c":[6,0,3,5],
 "classCBUSACAN2040.html#a52939960114e4fbf898a14c68de804ce":[6,0,3,4],
 "classCBUSACAN2040.html#a5429a218e38b388a9dadb8f70f26ec85":[6,0,3,2],
 "classCBUSACAN2040.html#a57e699da28c620fec01d26df9165d307":[6,0,3,0],
-"classCBUSACAN2040.html#a63ea241090b03f5475259fed4f062f7a":[6,0,3,10],
+"classCBUSACAN2040.html#a63ea241090b03f5475259fed4f062f7a":[6,0,3,11],
 "classCBUSACAN2040.html#a7fdcfc0b169846f9f8a117c07df7d294":[6,0,3,3],
+"classCBUSACAN2040.html#ad85bf6ef7aaf613a2ae09c10161de99b":[6,0,3,10],
 "classCBUSACAN2040.html#ae2d5070234e6d590dd5920f3e439053d":[6,0,3,6],
 "classCBUSACAN2040.html#af9ab2dfeabab7bb68a2f0520b0417947":[6,0,3,1],
 "classCBUSCircularBuffer.html":[6,0,5],
@@ -248,6 +249,5 @@ var NAVTREEINDEX0 =
 "classCBUSConfig.html#ac96b00ab9124aac134eea2bfa670ad0a":[6,0,7,46],
 "classCBUSConfig.html#aca286ebcea75ded72579ba2bc08f2712":[6,0,7,10],
 "classCBUSConfig.html#acee42ccaa317e13ce3ef420c362c1980":[6,0,7,43],
-"classCBUSConfig.html#ad0e108d3555e88c8180abb2241e316ce":[6,0,7,28],
-"classCBUSConfig.html#ad13530f85801222a58fe5f557e1ca295":[6,0,7,40]
+"classCBUSConfig.html#ad0e108d3555e88c8180abb2241e316ce":[6,0,7,28]
 };

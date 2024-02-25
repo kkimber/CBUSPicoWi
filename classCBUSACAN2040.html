@@ -168,6 +168,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a3d95ed70c8028f414c183083b68c7b1c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCBUSACAN2040.html#a3d95ed70c8028f414c183083b68c7b1c">notify_cb</a> (struct can2040 *cd, uint32_t notify, struct can2040_msg *amsg)</td></tr>
 <tr class="memdesc:a3d95ed70c8028f414c183083b68c7b1c"><td class="mdescLeft">&#160;</td><td class="mdescRight">callback  <a href="classCBUSACAN2040.html#a3d95ed70c8028f414c183083b68c7b1c">More...</a><br /></td></tr>
 <tr class="separator:a3d95ed70c8028f414c183083b68c7b1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad85bf6ef7aaf613a2ae09c10161de99b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCBUSACAN2040.html#ad85bf6ef7aaf613a2ae09c10161de99b">validateNV</a> (const uint8_t NVindex, const uint8_t oldValue, const uint8_t NVvalue) override</td></tr>
+<tr class="memdesc:ad85bf6ef7aaf613a2ae09c10161de99b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Validate an NV value.  <a href="classCBUSACAN2040.html#ad85bf6ef7aaf613a2ae09c10161de99b">More...</a><br /></td></tr>
+<tr class="separator:ad85bf6ef7aaf613a2ae09c10161de99b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classCBUSbase"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classCBUSbase')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classCBUSbase.html">CBUSbase</a></td></tr>
 <tr class="memitem:afa37bdb86e824b6ee627408156e61d57 inherit pub_methods_classCBUSbase"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCBUSbase.html#afa37bdb86e824b6ee627408156e61d57">CBUSbase</a> (<a class="el" href="classCBUSConfig.html">CBUSConfig</a> &amp;config)</td></tr>
 <tr class="separator:afa37bdb86e824b6ee627408156e61d57 inherit pub_methods_classCBUSbase"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -263,9 +266,6 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a985f1a1d2b7e3159dee348208a274ab6 inherit pub_methods_classCBUSbase"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a82300423f4a11711ce29e24d83c08e9f inherit pub_methods_classCBUSbase"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCBUSbase.html#a82300423f4a11711ce29e24d83c08e9f">consumeOwnEvents</a> (<a class="el" href="classCBUScoe.html">CBUScoe</a> *coe)</td></tr>
 <tr class="separator:a82300423f4a11711ce29e24d83c08e9f inherit pub_methods_classCBUSbase"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaa9f7d57748282083fa6581eb41fe980 inherit pub_methods_classCBUSbase"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCBUSbase.html#aaa9f7d57748282083fa6581eb41fe980">validateNV</a> (const uint8_t NVindex, const uint8_t oldValue, const uint8_t NVvalue)</td></tr>
-<tr class="memdesc:aaa9f7d57748282083fa6581eb41fe980 inherit pub_methods_classCBUSbase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Validate a new NV value.  <a href="classCBUSbase.html#aaa9f7d57748282083fa6581eb41fe980">More...</a><br /></td></tr>
-<tr class="separator:aaa9f7d57748282083fa6581eb41fe980 inherit pub_methods_classCBUSbase"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abb5904250317acf48ccead4513bc5bff inherit pub_methods_classCBUSbase"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCBUSbase.html#abb5904250317acf48ccead4513bc5bff">actUponNVchange</a> (const uint8_t NVindex, const uint8_t oldValue, const uint8_t NVvalue)</td></tr>
 <tr class="memdesc:abb5904250317acf48ccead4513bc5bff inherit pub_methods_classCBUSbase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Notifies of change of NV value, allowing module specific processing.  <a href="classCBUSbase.html#abb5904250317acf48ccead4513bc5bff">More...</a><br /></td></tr>
 <tr class="separator:abb5904250317acf48ccead4513bc5bff inherit pub_methods_classCBUSbase"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -772,6 +772,61 @@ false frame was not queued for transmission </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>set the CS and interrupt pins - option to override defaults used as CANL and CANH in this library </p>
+
+</div>
+</div>
+<a id="ad85bf6ef7aaf613a2ae09c10161de99b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad85bf6ef7aaf613a2ae09c10161de99b">&#9670;&nbsp;</a></span>validateNV()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CBUSACAN2040::validateNV </td>
+          <td>(</td>
+          <td class="paramtype">const uint8_t&#160;</td>
+          <td class="paramname"><em>NVindex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint8_t&#160;</td>
+          <td class="paramname"><em>oldValue</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint8_t&#160;</td>
+          <td class="paramname"><em>NVvalue</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Validate an NV value. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">NVindex</td><td>Index of the NV to validate </td></tr>
+    <tr><td class="paramname">oldValue</td><td>Previous value of the NV </td></tr>
+    <tr><td class="paramname">NVvalue</td><td>New value of the NV </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>false to prevent any updates to any NVs </dd></dl>
+
+<p>Reimplemented from <a class="el" href="classCBUSbase.html#aaa9f7d57748282083fa6581eb41fe980">CBUSbase</a>.</p>
 
 </div>
 </div>
