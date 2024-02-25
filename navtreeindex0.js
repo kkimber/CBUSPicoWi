@@ -50,13 +50,12 @@ var NAVTREEINDEX0 =
 "CBUSGridConnect_8cpp.html":[7,0,1,10],
 "CBUSGridConnect_8cpp.html#ac372934004e5b660809465adf70e8cd9":[7,0,1,10,0],
 "CBUSGridConnect_8h.html":[7,0,1,11],
-"CBUSGridConnect_8h.html#a2262359ff86063cd677e14e107fc8f9c":[7,0,1,11,2,5],
+"CBUSGridConnect_8h.html#a2262359ff86063cd677e14e107fc8f9c":[7,0,1,11,2,4],
 "CBUSGridConnect_8h.html#a3fffe62060e42749a1cd46e8a0117533":[7,0,1,11,0,1],
 "CBUSGridConnect_8h.html#a69b163421e1e15ca183c56fd83d69631":[7,0,1,11,2,0],
-"CBUSGridConnect_8h.html#a6ec62a99bfa0e037fb158c8054c5d0d1":[7,0,1,11,2,3],
 "CBUSGridConnect_8h.html#a9d9fecbaa8b0bfc15531c1f59057d130":[7,0,1,11,1,0],
 "CBUSGridConnect_8h.html#ab1ab9576121e9186379d4ac161f51154":[7,0,1,11,0,0],
-"CBUSGridConnect_8h.html#aca9dbf4f23a360551cf7ae3f00a97123":[7,0,1,11,2,4],
+"CBUSGridConnect_8h.html#aca9dbf4f23a360551cf7ae3f00a97123":[7,0,1,11,2,3],
 "CBUSGridConnect_8h.html#acc16ca07229c85b8325695aee45b91cb":[7,0,1,11,2,1],
 "CBUSGridConnect_8h.html#ad49b906581fda1e4d355c60120fc3665":[7,0,1,11,5],
 "CBUSGridConnect_8h.html#af22dcf39bc21b26393e13e8b5d09c3f5":[7,0,1,11,4],
@@ -249,5 +248,6 @@ var NAVTREEINDEX0 =
 "classCBUSConfig.html#ac96b00ab9124aac134eea2bfa670ad0a":[6,0,7,46],
 "classCBUSConfig.html#aca286ebcea75ded72579ba2bc08f2712":[6,0,7,10],
 "classCBUSConfig.html#acee42ccaa317e13ce3ef420c362c1980":[6,0,7,43],
-"classCBUSConfig.html#ad0e108d3555e88c8180abb2241e316ce":[6,0,7,28]
+"classCBUSConfig.html#ad0e108d3555e88c8180abb2241e316ce":[6,0,7,28],
+"classCBUSConfig.html#ad13530f85801222a58fe5f557e1ca295":[6,0,7,40]
 };

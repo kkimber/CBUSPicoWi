@@ -1,6 +1,5 @@
 var NAVTREEINDEX2 =
 {
-"globals_enum.html":[7,1,4],
 "globals_eval.html":[7,1,5],
 "globals_func.html":[7,1,1],
 "globals_type.html":[7,1,3],

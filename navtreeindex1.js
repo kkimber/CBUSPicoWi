@@ -1,6 +1,5 @@
 var NAVTREEINDEX1 =
 {
-"classCBUSConfig.html#ad13530f85801222a58fe5f557e1ca295":[6,0,7,40],
 "classCBUSConfig.html#adac58ad040940d6cf5c9588a4f43d5a2":[6,0,7,1],
 "classCBUSConfig.html#ae8b3fb7ae27b29b2c675946868b168a9":[6,0,7,2],
 "classCBUSConfig.html#aeaa52ed7e8379a73c3880f066b9e3aa5":[6,0,7,4],
@@ -249,5 +248,6 @@ var NAVTREEINDEX1 =
 "functions_w.html":[6,3,0,21],
 "functions_~.html":[6,3,0,22],
 "globals.html":[7,1,0],
-"globals_defs.html":[7,1,6]
+"globals_defs.html":[7,1,6],
+"globals_enum.html":[7,1,4]
 };

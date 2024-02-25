@@ -126,16 +126,20 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:aff969391f102e7461e67fae076a81d02"><td class="mdescLeft">&#160;</td><td class="mdescRight">send a CAN message to Ethernet clients  <a href="classCBUSGridConnect.html#aff969391f102e7461e67fae076a81d02">More...</a><br /></td></tr>
 <tr class="separator:aff969391f102e7461e67fae076a81d02"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a310a8b1bee8d5523a2c9f9d31866f030"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCBUSGridConnect.html#a310a8b1bee8d5523a2c9f9d31866f030">available</a> (void)</td></tr>
+<tr class="memdesc:a310a8b1bee8d5523a2c9f9d31866f030"><td class="mdescLeft">&#160;</td><td class="mdescRight">Is there a CAN frame available in the queue.  <a href="classCBUSGridConnect.html#a310a8b1bee8d5523a2c9f9d31866f030">More...</a><br /></td></tr>
 <tr class="separator:a310a8b1bee8d5523a2c9f9d31866f030"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a18e17b1a5db3bc7c5822da33ef180f16"><td class="memItemLeft" align="right" valign="top"><a class="el" href="CBUSCircularBuffer_8h.html#classCANFrame">CANFrame</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCBUSGridConnect.html#a18e17b1a5db3bc7c5822da33ef180f16">get</a> (void)</td></tr>
+<tr class="memdesc:a18e17b1a5db3bc7c5822da33ef180f16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve a CAN frame from the queue.  <a href="classCBUSGridConnect.html#a18e17b1a5db3bc7c5822da33ef180f16">More...</a><br /></td></tr>
 <tr class="separator:a18e17b1a5db3bc7c5822da33ef180f16"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a7d8b26568b90380c67c8aaea8aa103ab"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCBUSGridConnect.html#a7d8b26568b90380c67c8aaea8aa103ab">extractAndQueueGC</a> (<a class="el" href="CBUSGridConnect_8h.html#structTCPServer__t">TCPServer_t</a> *state, uint16_t nStart, struct pbuf *p)</td></tr>
+<tr class="memdesc:a7d8b26568b90380c67c8aaea8aa103ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extract a Grid Connect message from the incoming stream.  <a href="classCBUSGridConnect.html#a7d8b26568b90380c67c8aaea8aa103ab">More...</a><br /></td></tr>
 <tr class="separator:a7d8b26568b90380c67c8aaea8aa103ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a88206d849c532da62649878fb39eab1c"><td class="memItemLeft" align="right" valign="top">static err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCBUSGridConnect.html#a88206d849c532da62649878fb39eab1c">serverSend</a> (void *arg, struct tcp_pcb *tpcb, <a class="el" href="CBUSGridConnect_8h.html#structgcMessage__t">gcMessage_t</a> msg)</td></tr>
-<tr class="separator:a88206d849c532da62649878fb39eab1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa29c9076c02bcb9a91a8149fed7a94d8"><td class="memItemLeft" align="right" valign="top">static err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCBUSGridConnect.html#aa29c9076c02bcb9a91a8149fed7a94d8">serverSend</a> (void *arg, struct tcp_pcb *tpcb, <a class="el" href="CBUSGridConnect_8h.html#structgcMessage__t">gcMessage_t</a> &amp;msg)</td></tr>
+<tr class="memdesc:aa29c9076c02bcb9a91a8149fed7a94d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attempts to send a Grid Connect message to a client.  <a href="classCBUSGridConnect.html#aa29c9076c02bcb9a91a8149fed7a94d8">More...</a><br /></td></tr>
+<tr class="separator:aa29c9076c02bcb9a91a8149fed7a94d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af310f9656ecd3d4f399ac33fcb59945d"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCBUSGridConnect.html#af310f9656ecd3d4f399ac33fcb59945d">serverCloseConn</a> (struct tcp_pcb *pClientCB, <a class="el" href="CBUSGridConnect_8h.html#structTCPServer__t">TCPServer_t</a> *server)</td></tr>
 <tr class="memdesc:af310f9656ecd3d4f399ac33fcb59945d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Close a client connection.  <a href="classCBUSGridConnect.html#af310f9656ecd3d4f399ac33fcb59945d">More...</a><br /></td></tr>
 <tr class="separator:af310f9656ecd3d4f399ac33fcb59945d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -149,10 +153,13 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memdesc:a5dc47ec14fbe94e1bc1b8292b40cbb2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receive data from a client connection.  <a href="classCBUSGridConnect.html#a5dc47ec14fbe94e1bc1b8292b40cbb2a">More...</a><br /></td></tr>
 <tr class="separator:a5dc47ec14fbe94e1bc1b8292b40cbb2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab132e4ece0b8ae23f1dee89810222e72"><td class="memItemLeft" align="right" valign="top">static err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCBUSGridConnect.html#ab132e4ece0b8ae23f1dee89810222e72">serverSent</a> (void *arg, struct tcp_pcb *tpcb, u16_t len)</td></tr>
+<tr class="memdesc:ab132e4ece0b8ae23f1dee89810222e72"><td class="mdescLeft">&#160;</td><td class="mdescRight">Notification of recept of data from remote host (ACK)  <a href="classCBUSGridConnect.html#ab132e4ece0b8ae23f1dee89810222e72">More...</a><br /></td></tr>
 <tr class="separator:ab132e4ece0b8ae23f1dee89810222e72"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a42d7ccd5345c22502c3b076be402f7b0"><td class="memItemLeft" align="right" valign="top">static err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCBUSGridConnect.html#a42d7ccd5345c22502c3b076be402f7b0">serverPoll</a> (void *arg, struct tcp_pcb *tpcb)</td></tr>
+<tr class="memdesc:a42d7ccd5345c22502c3b076be402f7b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Background poll to perform maintenance and force retry of send failures.  <a href="classCBUSGridConnect.html#a42d7ccd5345c22502c3b076be402f7b0">More...</a><br /></td></tr>
 <tr class="separator:a42d7ccd5345c22502c3b076be402f7b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5010b1b2a23802fe2ea677107bc89eed"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCBUSGridConnect.html#a5010b1b2a23802fe2ea677107bc89eed">serverErr</a> (void *arg, err_t err)</td></tr>
+<tr class="memdesc:a5010b1b2a23802fe2ea677107bc89eed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handle errors.  <a href="classCBUSGridConnect.html#a5010b1b2a23802fe2ea677107bc89eed">More...</a><br /></td></tr>
 <tr class="separator:a5010b1b2a23802fe2ea677107bc89eed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -211,9 +218,11 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>true </dd>
+
+<p>Is there a CAN frame available in the queue. </p>
+<dl class="section return"><dt>Returns</dt><dd>true There is a CAN frame in the queue </dd>
 <dd>
-false </dd></dl>
+false There isn't a CAN frame available in the queue </dd></dl>
 
 </div>
 </div>
@@ -257,6 +266,16 @@ false </dd></dl>
 </table>
 </div><div class="memdoc">
 
+<p>Extract a Grid Connect message from the incoming stream. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">state</td><td>Pointer to the TCP Server </td></tr>
+    <tr><td class="paramname">nStart</td><td>Start offset for searching for message </td></tr>
+    <tr><td class="paramname">p</td><td>Pointer to pbuf containing data from stream </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a18e17b1a5db3bc7c5822da33ef180f16"></a>
@@ -274,7 +293,9 @@ false </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="CBUSCircularBuffer_8h.html#classCANFrame" title="Class to hold a CAN/CBUS frame.">CANFrame</a> </dd></dl>
+
+<p>Retrieve a CAN frame from the queue. </p>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="CBUSCircularBuffer_8h.html#classCANFrame" title="Class to hold a CAN/CBUS frame.">CANFrame</a> CAN Frame from the queue </dd></dl>
 
 </div>
 </div>
@@ -436,6 +457,15 @@ false </dd></dl>
 </table>
 </div><div class="memdoc">
 
+<p>Handle errors. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">arg</td><td>TCP Server state associated with the server providing data </td></tr>
+    <tr><td class="paramname">err</td><td>Error to handle </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a225e4930c30565ea1d888e7f7bd11bd5"></a>
@@ -502,6 +532,16 @@ false the server connection could not be opened </dd></dl>
 </table>
 </div><div class="memdoc">
 
+<p>Background poll to perform maintenance and force retry of send failures. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">arg</td><td>TCP Server state associated with the server providing data </td></tr>
+    <tr><td class="paramname">tpcb</td><td>Pointer to TCP control block </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>ERR_OK on success </dd></dl>
+
 </div>
 </div>
 <a id="a5dc47ec14fbe94e1bc1b8292b40cbb2a"></a>
@@ -564,8 +604,8 @@ false the server connection could not be opened </dd></dl>
 
 </div>
 </div>
-<a id="a88206d849c532da62649878fb39eab1c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a88206d849c532da62649878fb39eab1c">&#9670;&nbsp;</a></span>serverSend()</h2>
+<a id="aa29c9076c02bcb9a91a8149fed7a94d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa29c9076c02bcb9a91a8149fed7a94d8">&#9670;&nbsp;</a></span>serverSend()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -588,7 +628,7 @@ false the server connection could not be opened </dd></dl>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="CBUSGridConnect_8h.html#structgcMessage__t">gcMessage_t</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="CBUSGridConnect_8h.html#structgcMessage__t">gcMessage_t</a> &amp;&#160;</td>
           <td class="paramname"><em>msg</em>&#160;</td>
         </tr>
         <tr>
@@ -603,6 +643,17 @@ false the server connection could not be opened </dd></dl>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Attempts to send a Grid Connect message to a client. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">arg</td><td>TCP Server state associated with the server accept </td></tr>
+    <tr><td class="paramname">tpcb</td><td>Pointer to the TCP control block </td></tr>
+    <tr><td class="paramname">msg</td><td>Reference to the Grid Connect message to send </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Error code </dd></dl>
 
 </div>
 </div>
@@ -645,6 +696,17 @@ false the server connection could not be opened </dd></dl>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Notification of recept of data from remote host (ACK) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">arg</td><td>TCP Server state associated with the server providing data </td></tr>
+    <tr><td class="paramname">tpcb</td><td>Pointer to TCP control block </td></tr>
+    <tr><td class="paramname">len</td><td>Length of data received from previous ACK </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>ERR_OK </dd></dl>
 
 </div>
 </div>
