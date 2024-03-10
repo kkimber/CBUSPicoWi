@@ -24,6 +24,9 @@
                 "break main",
                 "continue"
             ],
+            "postLaunchCommands": [
+               "monitor arm semihosting enable",
+            ],
             "liveWatch": {
                "enabled": true,
                "samplesPerSecond": 4

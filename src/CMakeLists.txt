@@ -42,6 +42,7 @@ target_compile_options(CBUSPico PRIVATE
 target_link_libraries(
    CBUSPico
    pico_stdlib
+   # pico_stdio_semihosting
    pico_multicore
    cmsis_core
    hardware_i2c

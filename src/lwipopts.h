@@ -92,3 +92,8 @@
 #define LWIP_HTTPD_SSI 1
 #define LWIP_HTTPD_SSI_INCLUDE_TAG 0
 #define HTTPD_FSDATA_FILE "picowi/htmldata.c"
+
+#if LIB_PICO_STDIO_SEMIHOSTING
+// Debug CYW32 ARCH
+#define PICO_CYW43_ARCH_DEBUG_ENABLED 1
+#endif

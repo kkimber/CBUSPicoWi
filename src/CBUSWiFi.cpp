@@ -242,6 +242,12 @@ bool CBUSWiFi::InitializeClient()
    if (!ReadConfiguration())
    {
       // Could not setup SPI, mount the SD card or parse the configuration
+      // Initialize cyw43 so we can flash the onboard LED
+      if (cyw43_arch_init())
+      {
+         // WiFi Init failed - hang here
+         while(1) {};
+      }
       return false;
    }
 
@@ -270,6 +276,9 @@ bool CBUSWiFi::InitializeClient()
    // We're operating in station mode
    cyw43_arch_enable_sta_mode();
 
+   // Set power saving options for performance
+   cyw43_wifi_pm(&cyw43_state, CYW43_PERFORMANCE_PM);
+
    // Determine required authentication method from configuration
    // Default is no authentication
    uint32_t auth = CYW43_AUTH_OPEN;
@@ -290,10 +299,30 @@ bool CBUSWiFi::InitializeClient()
       auth = CYW43_AUTH_WPA2_MIXED_PSK;
    }
 
-   // Attempt connection to the WiFi router - 10 second timeout
-   if (cyw43_arch_wifi_connect_timeout_ms(m_config.ssid, m_config.passwd, auth, 10000))
+   // Attempt connection to the WiFi router - 5 second timeout
+   int err = cyw43_arch_wifi_connect_timeout_ms(m_config.ssid, m_config.passwd, auth, 5000);
+
+   // Allow for retries
+   int nRetries = 4;
+   while ((err != PICO_OK) && nRetries--)
    {
-      // Failed to connect to WiFi
+      // Retry - again 5 second timeout
+      err = cyw43_arch_wifi_connect_timeout_ms(m_config.ssid, m_config.passwd, auth, 5000);
+
+      // Break out on success
+      if (err == PICO_OK)
+      {
+         break;
+      }
+
+      // Delay before retry
+      sleep_ms(1000);
+   }
+
+   // Check for connection
+   if (err != PICO_OK)
+   {
+      // Failed to connect
       return false;
    }
 

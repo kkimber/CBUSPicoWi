@@ -342,6 +342,13 @@ extern "C" int main(int, char **)
    // Init stdio lib (only really required if UART logging etc.)
    stdio_init_all();
 
+#if LIB_PICO_STDIO_SEMIHOSTING
+   // Setp CRLF options
+   stdio_set_translate_crlf(&stdio_semihosting, false);
+
+   printf("CANPiWi : Initializing\n");
+#endif
+
    // Initialize
    setup();
 
