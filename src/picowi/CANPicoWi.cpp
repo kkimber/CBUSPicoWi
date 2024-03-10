@@ -57,7 +57,7 @@
 // constants
 constexpr uint8_t VER_MAJ = 1;   ///< module code major version
 constexpr char VER_MIN = 'a';    ///< module code minor version
-constexpr uint8_t VER_BETA = 1;  ///< module code beta sub-version
+constexpr uint8_t VER_BETA = 2;  ///< module code beta sub-version
 constexpr uint8_t MODULEID = 99; ///< CBUS module type
 
 // Map CBUS LED's switch to HW
