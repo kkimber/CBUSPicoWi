@@ -6,24 +6,24 @@ This configuration file, allows for configuration of your WiFi credentials, alon
 
 The file must be named 'config.ini' and needs to be loaded in the root directory of the SD card.  Below is a template example for the config.ini contents.  You need to change (at a minimum) the ssid and password values:
 
-      ; MERG PicoWi configuration
-      ; Example file:
-      ; Modify and write to a FAT formatted SD Card
+    ; MERG PicoWi configuration
+    ; Example file:
+    ; Modify and write to a FAT formatted SD Card
 
-      [wifi]
-      country = GB             ; Country code for WiFi
-      ssid = XXXXXXXXX         ; WiFi router SSID
-      password = XXXXXXXXXXXX  ; WiFi router password
-      wpa_auth = false         ; Enable WiFi WPA authentication [WPA TPIP PSK]
-      wpa2_auth = true         ; Enable WiFi WPA2 authentication [WP2 AES PSK]
+    [wifi]
+    country = GB             ; Country code for WiFi
+    ssid = XXXXXXXXX         ; WiFi router SSID
+    password = XXXXXXXXXXXX  ; WiFi router password
+    wpa_auth = false         ; Enable WiFi WPA authentication [WPA TPIP PSK]
+    wpa2_auth = true         ; Enable WiFi WPA2 authentication [WP2 AES PSK]
 
-      [gridconnect]
-      enable = true            ; Enable CBUS Grid Connect server
-      port = 5555              ; Port number for the Grid Connnect server
+    [gridconnect]
+    enable = true            ; Enable CBUS Grid Connect server
+    port = 5555              ; Port number for the Grid Connnect server
 
-      [edthrottle]
-      enable = true            ; Enable the Engine Driver Throttle server
-      port = 4444              ; Port number for the ED Throttle server
+    [edthrottle]
+    enable = true            ; Enable the Engine Driver Throttle server
+    port = 4444              ; Port number for the ED Throttle server
 
 ## WiFi configuration
 
