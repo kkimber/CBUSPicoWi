@@ -101,24 +101,24 @@ $(document).ready(function(){initNavTree('md_doc_config_ini.html',''); initResiz
 <div class="contents">
 <div class="textblock"><p>CANPicoWi requires a configuration file on an SD card, which is formatted as a FAT or FAT32 file system.</p>
 <p>This configuration file, allows for configuration of your WiFi credentials, along with options as to if the Grid Connect server is able, and if so on which port, and the similar for the Engine Driver throttle service.</p>
-<p>The file must be named 'config.ini' and needs to be loaded in the root directory of the SD card. Below is a template example for the config.ini contents. You need to change (at a minimum) the ssid and password values: </p><pre class="fragment">  ; MERG PicoWi configuration
-  ; Example file:
-  ; Modify and write to a FAT formatted SD Card
+<p>The file must be named 'config.ini' and needs to be loaded in the root directory of the SD card. Below is a template example for the config.ini contents. You need to change (at a minimum) the ssid and password values: </p><pre class="fragment">; MERG PicoWi configuration
+; Example file:
+; Modify and write to a FAT formatted SD Card
 
-  [wifi]
-  country = GB             ; Country code for WiFi
-  ssid = XXXXXXXXX         ; WiFi router SSID
-  password = XXXXXXXXXXXX  ; WiFi router password
-  wpa_auth = false         ; Enable WiFi WPA authentication [WPA TPIP PSK]
-  wpa2_auth = true         ; Enable WiFi WPA2 authentication [WP2 AES PSK]
+[wifi]
+country = GB             ; Country code for WiFi
+ssid = XXXXXXXXX         ; WiFi router SSID
+password = XXXXXXXXXXXX  ; WiFi router password
+wpa_auth = false         ; Enable WiFi WPA authentication [WPA TPIP PSK]
+wpa2_auth = true         ; Enable WiFi WPA2 authentication [WP2 AES PSK]
 
-  [gridconnect]
-  enable = true            ; Enable CBUS Grid Connect server
-  port = 5555              ; Port number for the Grid Connnect server
+[gridconnect]
+enable = true            ; Enable CBUS Grid Connect server
+port = 5555              ; Port number for the Grid Connnect server
 
-  [edthrottle]
-  enable = true            ; Enable the Engine Driver Throttle server
-  port = 4444              ; Port number for the ED Throttle server
+[edthrottle]
+enable = true            ; Enable the Engine Driver Throttle server
+port = 4444              ; Port number for the ED Throttle server
 </pre> <h1><a class="anchor" id="autotoc_md2"></a>
 WiFi configuration</h1>
 <p>CANPicoWi currently only supports WiFi in station / router mode, i.e. the CANPicoWi module connects to a WiFi router, as such the CANPicoWi needs knowledge of the credentials to connect to the router.</p>
