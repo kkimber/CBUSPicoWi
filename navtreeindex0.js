@@ -5,10 +5,13 @@ var NAVTREEINDEX0 =
 "ACAN2040_8h.html":[7,0,1,1],
 "ACAN2040_8h_source.html":[7,0,1,1],
 "CBUSACAN2040_8cpp.html":[7,0,1,4],
+"CBUSACAN2040_8cpp.html#a674da8eef20a253474cd7e0202629b12":[7,0,1,4,2],
+"CBUSACAN2040_8cpp.html#a8a9bf1c088ccfcbd220ac27a3ee6a7dc":[7,0,1,4,1],
 "CBUSACAN2040_8cpp.html#a9fdcaf546f07f8531fd7b5056cb686cb":[7,0,1,4,0],
 "CBUSACAN2040_8h.html":[7,0,1,5],
 "CBUSACAN2040_8h_source.html":[7,0,1,5],
 "CBUSCircularBuffer_8cpp.html":[7,0,1,6],
+"CBUSCircularBuffer_8cpp.html#a0b0bd949102d25a2e93151970e0b46f1":[7,0,1,6,0],
 "CBUSCircularBuffer_8h.html":[7,0,1,7],
 "CBUSCircularBuffer_8h.html#a09ee01f75b96ea68ff0ceebecf0b9233":[7,0,1,7,0,4],
 "CBUSCircularBuffer_8h.html#a3551a491eb9fd7112b87a8fb76a5739e":[7,0,1,7,1,0],
@@ -246,8 +249,5 @@ var NAVTREEINDEX0 =
 "classCBUSConfig.html#ab491da30c90d0607dd416674d6a267aa":[6,0,7,38],
 "classCBUSConfig.html#ac144b400a84c160eed9b3c96dabe26b8":[6,0,7,26],
 "classCBUSConfig.html#ac911e839983ea7f628f2da7d04aaffa1":[6,0,7,23],
-"classCBUSConfig.html#ac96b00ab9124aac134eea2bfa670ad0a":[6,0,7,46],
-"classCBUSConfig.html#aca286ebcea75ded72579ba2bc08f2712":[6,0,7,10],
-"classCBUSConfig.html#acee42ccaa317e13ce3ef420c362c1980":[6,0,7,43],
-"classCBUSConfig.html#ad0e108d3555e88c8180abb2241e316ce":[6,0,7,28]
+"classCBUSConfig.html#ac96b00ab9124aac134eea2bfa670ad0a":[6,0,7,46]
 };
