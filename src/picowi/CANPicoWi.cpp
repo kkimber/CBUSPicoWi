@@ -57,7 +57,7 @@
 // constants
 constexpr uint8_t VER_MAJ = 1;   ///< module code major version
 constexpr char VER_MIN = 'a';    ///< module code minor version
-constexpr uint8_t VER_BETA = 2;  ///< module code beta sub-version
+constexpr uint8_t VER_BETA = 3;  ///< module code beta sub-version
 constexpr uint8_t MODULEID = 99; ///< CBUS module type
 
 // Map CBUS LED's switch to HW
@@ -174,7 +174,7 @@ void setupCBUS()
    CBUS.indicateFLiMMode(module_config.getFLiM());
 
    // configure and start CAN bus and CBUS message processing
-   CBUS.setNumBuffers(16, 4);    // more buffers = more memory used, fewer = less
+   CBUS.setNumBuffers(25, 4);    // more buffers = more memory used, fewer = less
    CBUS.setPins(CAN_TX, CAN_RX); // select pins for CAN tx and rx
 
    if (!CBUS.begin())
@@ -356,7 +356,5 @@ extern "C" int main(int, char **)
    while (1)
    {
       loop();
-      /// @todo provision for RTOS and / or basic OSTick / WFI
-      sleep_ms(1);
    }
 }

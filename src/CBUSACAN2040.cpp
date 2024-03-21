@@ -51,8 +51,8 @@
 // static pointer to object
 CBUSACAN2040 *acan2040p;
 
-// static callback function
-static void cb(struct can2040 *cd, uint32_t notify, struct can2040_msg *msg)
+// static callback function - locate in RAM
+static __attribute__((section(".RAM"))) void cb(struct can2040 *cd, uint32_t notify, struct can2040_msg *msg)
 {
    acan2040p->notify_cb(cd, notify, msg);
 }
@@ -162,10 +162,11 @@ CANFrame CBUSACAN2040::getNextMessage(void)
 }
 
 //
-/// callback
+/// callback - locate in RAM
 //
+static uint32_t nErrors = 0;
 
-void CBUSACAN2040::notify_cb(struct can2040 *cd, uint32_t notify, struct can2040_msg *amsg)
+void __attribute__((section(".RAM"))) CBUSACAN2040::notify_cb(struct can2040 *cd, uint32_t notify, struct can2040_msg *amsg)
 {
    (void)(cd); // unused
 
@@ -196,6 +197,7 @@ void CBUSACAN2040::notify_cb(struct can2040 *cd, uint32_t notify, struct can2040
       break;
    case CAN2040_NOTIFY_ERROR:
       // Notify CAN Error
+      nErrors++;
       break;
    default:
       // Unknown notification

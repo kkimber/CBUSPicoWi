@@ -36,8 +36,11 @@ target_include_directories(CBUSPico PRIVATE
 
 target_compile_options(CBUSPico PRIVATE
    # can2040 has an unused param, -Wpedantic is a step too far !
-  -Wall -Wextra -Werror -Wno-unused-parameter 
+  -O2 -Wall -Wextra -Werror -Wno-unused-parameter 
 )
+
+# Custom linker scipt to put CAN2040 code into RAM
+pico_set_linker_script(CBUSPico ${CMAKE_CURRENT_SOURCE_DIR}/memmap_canpiwi.ld)
 
 target_link_libraries(
    CBUSPico

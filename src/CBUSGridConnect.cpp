@@ -405,11 +405,9 @@ err_t CBUSGridConnect::serverAccept(void *arg, struct tcp_pcb *pClientCB, err_t 
       return ERR_VAL;
    }
 
-   // Disable nagle - TODO [good idea]
-   tcp_nagle_disable(pClientCB);
 
    // Set priority - TODO [good idea]
-   tcp_setprio(pClientCB, TCP_PRIO_MIN);
+   tcp_setprio(pClientCB, TCP_PRIO_MAX);
 
    // Save the client connection control block
    state->pClientCB = pClientCB;
