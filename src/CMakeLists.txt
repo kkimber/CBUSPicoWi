@@ -36,7 +36,7 @@ target_include_directories(CBUSPico PRIVATE
 
 target_compile_options(CBUSPico PRIVATE
    # can2040 has an unused param, -Wpedantic is a step too far !
-  -O2 -Wall -Wextra -Werror -Wno-unused-parameter 
+   -Wall -Wextra -Werror -Wno-unused-parameter 
 )
 
 # Custom linker scipt to put CAN2040 code into RAM

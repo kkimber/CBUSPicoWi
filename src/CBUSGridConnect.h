@@ -96,8 +96,9 @@ public:
    bool serverOpen(uint16_t nPort);
    static void extractAndQueueGC(TCPServer_t *state, uint16_t nStart, struct pbuf *p);
    // Interface for clients to send us frames from CAN
-   void sendCANFrame(const CANFrame &msg);
-   static err_t serverSend(void *arg, struct tcp_pcb *tpcb, gcMessage_t& msg);
+   bool canSend(void);
+   void sendCANFrame(const CANFrame &msg, bool bMore);
+   static err_t serverSend(void *arg, struct tcp_pcb *tpcb, gcMessage_t& msg, bool bMore);
    // Interface to receive CAN Frames from GridConnect clients
    bool available(void);
    CANFrame get(void);

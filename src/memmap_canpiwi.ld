@@ -128,6 +128,13 @@ SECTIONS
        *can2040.o(.rodata*)
     } > RAM
 
+    /* Put TCP Checksum routines in RAM */
+    .inet_chksum :
+    {
+      *inet_chksum.o(.text*)
+      *inet_chksum.o(.rodata*)
+    } > RAM
+
     .data : {
         __data_start__ = .;
         *(vtable)

@@ -617,18 +617,29 @@ void CBUSbase::process(uint8_t num_messages)
       else if (m_coeObj != nullptr && m_coeObj->available())
       {
          msg = m_coeObj->get();
+         
          // Flag this is from us, so we don't trigger enumeration
          bOwnEvent = true;
       }
       else
       {
-         // Process message received off CAN
-         msg = getNextMessage();
-
-         // Forward all received CAN messages to GridConnect clients
-         if (m_gcServer)
+         // Check if we should be able to send on TCP before removing frame from FIFO
+         if (m_gcServer->canSend())
          {
-            m_gcServer->sendCANFrame(msg);
+            // Process message received off CAN
+            msg = getNextMessage();
+
+            // Forward all received CAN messages to GridConnect clients
+            if (m_gcServer)
+            {
+               // Indicate if we have more data to send immediately
+               m_gcServer->sendCANFrame(msg, available());
+            }
+         }
+         else
+         {
+            // No memory to send on TCP, so delay sending, leave frame in FIFO
+            continue;
          }
       }
 

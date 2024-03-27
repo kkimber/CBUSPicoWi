@@ -228,7 +228,7 @@ bool CBUSACAN2040::sendMessage(CANFrame &msg, bool rtr, bool ext, uint8_t priori
    // Forward all received CAN messages to GridConnect clients
    if (m_gcServer)
    {
-      m_gcServer->sendCANFrame(msg);
+      m_gcServer->sendCANFrame(msg, false);
    }
 
    makeHeader(msg, priority); // default priority unless user overrides

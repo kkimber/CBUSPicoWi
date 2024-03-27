@@ -292,11 +292,24 @@ err_t CBUSGridConnect::serverShutdown(TCPServer_t* state)
 }
 
 ///
+/// @brief determine if the TCP stack has enough capacity to queue a CAN frame
+/// @return true Frame can be sent
+/// @return false stack has insufficient buffer space to queue
+///
+static uint32_t lastFree = 0;
+bool CBUSGridConnect::canSend(void)
+{
+   // Check send buffer can accomodate a full length GC message
+   lastFree = tcp_sndbuf(m_tcpServer.pClientCB);
+   return lastFree > GC_MAX_MSG;
+}
+
+///
 /// @brief send a CAN message to Ethernet clients
 ///
 /// @param msg reference to CAN frame to forward
 ///
-void CBUSGridConnect::sendCANFrame(const CANFrame &msg)
+void CBUSGridConnect::sendCANFrame(const CANFrame &msg, bool bMore)
 {
    gcMessage_t gcMsg;
 
@@ -306,7 +319,7 @@ void CBUSGridConnect::sendCANFrame(const CANFrame &msg)
       // If we have a client connection, initiate sending the frame to the client
       if (m_tcpServer.pClientCB != nullptr)
       {
-         serverSend(&m_tcpServer, m_tcpServer.pClientCB, gcMsg);
+         serverSend(&m_tcpServer, m_tcpServer.pClientCB, gcMsg, bMore);
       }
    }
 }
@@ -319,7 +332,7 @@ void CBUSGridConnect::sendCANFrame(const CANFrame &msg)
 /// @param msg Reference to the Grid Connect message to send
 /// @return Error code
 ///
-err_t CBUSGridConnect::serverSend(void *arg, struct tcp_pcb *tpcb, gcMessage_t& msg)
+err_t CBUSGridConnect::serverSend(void *arg, struct tcp_pcb *tpcb, gcMessage_t& msg, bool bMore)
 {
    TCPServer_t *state = static_cast<TCPServer_t *>(arg);
 
@@ -328,12 +341,17 @@ err_t CBUSGridConnect::serverSend(void *arg, struct tcp_pcb *tpcb, gcMessage_t& 
 
    state->sent_len = 0;
 
-   err_t err = tcp_write(tpcb, msg.byte, msg.len, TCP_WRITE_FLAG_COPY);
+   uint8_t pushFlag = bMore ? TCP_WRITE_FLAG_MORE : 0x00;
+
+   err_t err = tcp_write(tpcb, msg.byte, msg.len, TCP_WRITE_FLAG_COPY | pushFlag);
 
    if (err == ERR_OK)
    {
-      // Successfully written to stack, now try to force immediate transmit
-      err = tcp_output(tpcb);
+      // Successfully written to stack, if no more try to force immediate transmit
+      if (!bMore)
+      {
+         err = tcp_output(tpcb);
+      }
    }
    else if (err == ERR_MEM)
    {
@@ -456,7 +474,7 @@ err_t CBUSGridConnect::serverRecv(void *arg, struct tcp_pcb *tpcb, struct pbuf *
       else
       {
          // we're not done yet, try sending what's left
-         serverSend(state, tpcb, state->bufferSent);
+         serverSend(state, tpcb, state->bufferSent, false);
       }
       retErr = ERR_OK;
    }
@@ -594,7 +612,7 @@ err_t CBUSGridConnect::serverPoll(void *arg, struct tcp_pcb *tpcb)
       {
          // Install sent notification and try to send again
          tcp_sent(state->pClientCB, serverSent);
-         serverSend(state, state->pClientCB, state->bufferSent);
+         serverSend(state, state->pClientCB, state->bufferSent, false);
       }
       else
       {
