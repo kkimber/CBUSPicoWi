@@ -1,5 +1,5 @@
 /*
-   MERG CBUS Module Library - RasberryPi Pico SDK port
+   CBUS Module Library - RasberryPi Pico SDK port
    Copyright (c) Kevin Kimber 2023
 
    Based on work by Duncan Greenwood
@@ -1278,7 +1278,7 @@ void CBUSbase::doRqnp()
    // respond with PARAMS message
    msg.len = 8;
    msg.data[0] = OPC_PARAMS;                         // opcode
-   msg.data[1] = m_pModuleParams->param[PAR_MANU];   // manf code -- MERG
+   msg.data[1] = m_pModuleParams->param[PAR_MANU];   // manf code
    msg.data[2] = m_pModuleParams->param[PAR_MINVER]; // minor code ver
    msg.data[3] = m_pModuleParams->param[PAR_MTYP];   // module ident
    msg.data[4] = m_pModuleParams->param[PAR_EVNUM];  // number of events

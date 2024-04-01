@@ -1,5 +1,5 @@
 /*
-   MERG CBUS Module Library - RasberryPi Pico SDK port
+   CBUS Module Library - RasberryPi Pico SDK port
    Copyright (c) Kevin Kimber 2023
 
    Based on work by Duncan Greenwood
@@ -308,6 +308,7 @@ bool CBUSGridConnect::canSend(void)
 /// @brief send a CAN message to Ethernet clients
 ///
 /// @param msg reference to CAN frame to forward
+/// @param bMore indicates if there are more frames in the CAN Rx FIFO
 ///
 void CBUSGridConnect::sendCANFrame(const CANFrame &msg, bool bMore)
 {
@@ -330,6 +331,7 @@ void CBUSGridConnect::sendCANFrame(const CANFrame &msg, bool bMore)
 /// @param arg TCP Server state associated with the server accept
 /// @param tpcb Pointer to the TCP control block
 /// @param msg Reference to the Grid Connect message to send
+/// @param bMore Indicates if the e is more data that could be sent immediately
 /// @return Error code
 ///
 err_t CBUSGridConnect::serverSend(void *arg, struct tcp_pcb *tpcb, gcMessage_t& msg, bool bMore)

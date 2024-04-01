@@ -1,5 +1,5 @@
 /*
-   MERG CBUS Module Library - RasberryPi Pico SDK port
+   CBUS Module Library - RasberryPi Pico SDK port
    Copyright (c) Kevin Kimber 2023
 
    Configuration support for PICO FatFs SPI Library:

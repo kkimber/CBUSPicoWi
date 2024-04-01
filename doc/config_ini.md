@@ -6,7 +6,7 @@ This configuration file, allows for configuration of your WiFi credentials, alon
 
 The file must be named 'config.ini' and needs to be loaded in the root directory of the SD card.  Below is a template example for the config.ini contents.  You need to change (at a minimum) the ssid and password values:
 
-    ; MERG PicoWi configuration
+    ; PicoWi configuration
     ; Example file:
     ; Modify and write to a FAT formatted SD Card
 

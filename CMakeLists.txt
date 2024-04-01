@@ -7,7 +7,7 @@ set (PICO_BOARD pico_w)
 include(pico_sdk_import.cmake)
 
 # Define project
-project(MERG-CBUSPicoWi-Module C CXX ASM)
+project(CBUSPicoWi-Module C CXX ASM)
 set(CMAKE_C_STANDARD 11)
 set(CMAKE_CXX_STANDARD 17)
 
@@ -23,7 +23,7 @@ find_package(Doxygen)
 # Build documentation
 if (DOXYGEN_FOUND)
 
-   set(DOXYGEN_PROJECT_NAME "MERG CANPicoWi")
+   set(DOXYGEN_PROJECT_NAME "CANPicoWi")
    set(DOXYGEN_PROJECT_BRIEF "Module Documentation")
    set(DOXYGEN_PROJECT_NUMBER "1.0a")
    set(DOXYGEN_GENERATE_LATEX NO)

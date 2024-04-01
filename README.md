@@ -1,4 +1,4 @@
-# MERG CBUS CANPicoWi Module
+# CBUS CANPicoWi Module
 
 This repository contains firmware for the Raspberry PICO to build a module with a WiFi interface to CBUS.
 
