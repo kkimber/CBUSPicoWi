@@ -24,8 +24,8 @@
 */
 var NAVTREE =
 [
-  [ "MERG CANPicoWi", "index.html", [
-    [ "MERG CBUS CANPicoWi Module", "index.html", null ],
+  [ "CANPicoWi", "index.html", [
+    [ "CBUS CANPicoWi Module", "index.html", null ],
     [ "Configuration INI", "md_doc_config_ini.html", [
       [ "WiFi configuration", "md_doc_config_ini.html#autotoc_md2", [
         [ "Open mode", "md_doc_config_ini.html#autotoc_md3", null ],

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>MERG CANPicoWi: CBUSGridConnect Class Reference</title>
+<title>CANPicoWi: CBUSGridConnect Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -37,7 +37,7 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">MERG CANPicoWi
+   <div id="projectname">CANPicoWi
    &#160;<span id="projectnumber">1.0a</span>
    </div>
    <div id="projectbrief">Module Documentation</div>
@@ -349,6 +349,7 @@ false There isn't a CAN frame available in the queue </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">msg</td><td>reference to CAN frame to forward </td></tr>
+    <tr><td class="paramname">bMore</td><td>indicates if there are more frames in the CAN Rx FIFO </td></tr>
   </table>
   </dd>
 </dl>
@@ -686,6 +687,7 @@ false the server connection could not be opened </dd></dl>
     <tr><td class="paramname">arg</td><td>TCP Server state associated with the server accept </td></tr>
     <tr><td class="paramname">tpcb</td><td>Pointer to the TCP control block </td></tr>
     <tr><td class="paramname">msg</td><td>Reference to the Grid Connect message to send </td></tr>
+    <tr><td class="paramname">bMore</td><td>Indicates if the e is more data that could be sent immediately </td></tr>
   </table>
   </dd>
 </dl>
