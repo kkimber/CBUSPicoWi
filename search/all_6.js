@@ -1,15 +1,11 @@
 var searchData=
 [
-  ['fifo_5fsize_171',['FIFO_SIZE',['../CBUSGridConnect_8cpp.html#ac372934004e5b660809465adf70e8cd9',1,'CBUSGridConnect.cpp']]],
-  ['findeventspace_172',['findEventSpace',['../classCBUSConfig.html#a9e19c6bbca5888a43b29679b6883209d',1,'CBUSConfig']]],
-  ['findexistingevent_173',['findExistingEvent',['../classCBUSConfig.html#a4c40ae0cb79627c29677295853145287',1,'CBUSConfig']]],
-  ['flash_5fbase_174',['FLASH_BASE',['../CBUSConfig_8cpp.html#acaf5b1b75a7ba3ab52b15408c95ad231',1,'CBUSConfig.cpp']]],
-  ['flash_5foffset_175',['FLASH_OFFSET',['../CBUSConfig_8cpp.html#aef3de6b7fc0911720e69234e5491cbdf',1,'CBUSConfig.cpp']]],
-  ['flash_5fsize_176',['FLASH_SIZE',['../CBUSConfig_8cpp.html#ae54ee851b5a8e2738ad3fb8c030d1272',1,'CBUSConfig.cpp']]],
-  ['flushtoflash_177',['flushToFlash',['../classCBUSConfig.html#a4010188967b39919e33981f8ae457b52',1,'CBUSConfig']]],
-  ['framecallback_5ft_178',['frameCallback_t',['../CBUS_8h.html#a8c31bef5eca8f3a4d680cf444f01d9de',1,'CBUS.h']]],
-  ['framehandler_179',['frameHandler',['../classCBUSbase.html#a87c0b771b6df8cf0e2f04d5caa596598',1,'CBUSbase']]],
-  ['free_5fslots_180',['free_slots',['../classCBUSCircularBuffer.html#ad68231e8ebd68e0754fdcea18f2e55ab',1,'CBUSCircularBuffer']]],
-  ['freesram_181',['freeSRAM',['../classCBUSConfig.html#a5088321f676e3b88064fbf16476610ae',1,'CBUSConfig']]],
-  ['full_182',['full',['../classCBUSCircularBuffer.html#a4c0b3aba56b9791ab8e701aa8770c864',1,'CBUSCircularBuffer']]]
+  ['gcenable_32',['gcEnable',['../CBUSWiFi_8h.html#a5aa51a3dc361d174cff4a7e1d5d13917',1,'config_t']]],
+  ['gcport_33',['gcPort',['../CBUSWiFi_8h.html#ad703a44837d6c0073236b498c4e6fd7d',1,'config_t']]],
+  ['gcserver_34',['gcServer',['../CANPicoWi_8cpp.html#a02a93e5636c0c75e685932e640bab7f8',1,'CANPicoWi.cpp']]],
+  ['getcountrycode_35',['getCountryCode',['../classCBUSWiFi.html#a7c764483e721bab4978241127ce2c5c9',1,'CBUSWiFi']]],
+  ['getedthrottleport_36',['getEdThrottlePort',['../classCBUSWiFi.html#a7c847e30c069eed24d96520cdedd35be',1,'CBUSWiFi']]],
+  ['getgridconnectport_37',['getGridConnectPort',['../classCBUSWiFi.html#aabd570cad8c27ab857b3756684600a0d',1,'CBUSWiFi']]],
+  ['getwpa2enable_38',['getWPA2Enable',['../classCBUSWiFi.html#a2604cccff56165bc11003950556d509f',1,'CBUSWiFi']]],
+  ['getwpaenable_39',['getWPAEnable',['../classCBUSWiFi.html#a5132cc7dc10b25afc61c272a7d3d8da5',1,'CBUSWiFi']]]
 ];

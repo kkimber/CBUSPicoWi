@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['nodenumber_875',['nodeNumber',['../CBUSConfig_8h.html#ab1caaf288c499097b64c8cacfbfb8a8f',1,'EVENT_INFO_t']]],
-  ['notify_876',['notify',['../CBUSACAN2040_8cpp.html#a674da8eef20a253474cd7e0202629b12',1,'CBUSACAN2040.cpp']]],
-  ['num_5fparams_877',['NUM_PARAMS',['../CBUSParams_8h.html#af04fe3ed5d8e57d5be8810d1bfdafa0c',1,'CBUSParams.h']]]
+  ['wifi_232',['wifi',['../CANPicoWi_8cpp.html#aefbe7644bc0302ca67683b963d2fca1a',1,'CANPicoWi.cpp']]],
+  ['wpa2auth_233',['wpa2Auth',['../CBUSWiFi_8h.html#a33c7488712e221593af44de896b27f01',1,'config_t']]],
+  ['wpaauth_234',['wpaAuth',['../CBUSWiFi_8h.html#a522b4d954e25104dba237359258820d2',1,'config_t']]]
 ];

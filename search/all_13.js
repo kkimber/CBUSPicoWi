@@ -1,8 +1,7 @@
 var searchData=
 [
-  ['udp_5fdebug_481',['UDP_DEBUG',['../lwipopts_8h.html#a0393f312c5475a1c649b39ef9cfcaad4',1,'lwipopts.h']]],
-  ['ui_2emd_482',['ui.md',['../ui_8md.html',1,'']]],
-  ['updateevhashentry_483',['updateEvHashEntry',['../classCBUSConfig.html#a148d9f7dc9510511692dc0dad51e739e',1,'CBUSConfig']]],
-  ['uppernibble_484',['upperNibble',['../CBUSGridConnect_8h.html#af478458a76979b405f17d6a4b8d1e1de',1,'hexByteChars_t']]],
-  ['use_5fcrc_485',['use_crc',['../classCBUSLongMessageEx.html#a99490d640c0524624e498cf72d67484f',1,'CBUSLongMessageEx']]]
+  ['webserver_2emd_152',['webserver.md',['../webserver_8md.html',1,'']]],
+  ['wifi_153',['wifi',['../CANPicoWi_8cpp.html#aefbe7644bc0302ca67683b963d2fca1a',1,'CANPicoWi.cpp']]],
+  ['wpa2auth_154',['wpa2Auth',['../CBUSWiFi_8h.html#a33c7488712e221593af44de896b27f01',1,'config_t']]],
+  ['wpaauth_155',['wpaAuth',['../CBUSWiFi_8h.html#a522b4d954e25104dba237359258820d2',1,'config_t']]]
 ];

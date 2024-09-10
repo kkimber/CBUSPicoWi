@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['etharp_5fdebug_937',['ETHARP_DEBUG',['../lwipopts_8h.html#abff5d1e0b334f5b45bd2b8bbb675411e',1,'lwipopts.h']]],
-  ['ex_5fbuffer_5flen_938',['EX_BUFFER_LEN',['../CBUS_8h.html#aa4ab80178bfb7c9b9ad8e2c251482fd2',1,'CBUS.h']]]
+  ['fs_5fnumfiles_240',['FS_NUMFILES',['../htmldata_8c.html#aa06c00919f77418ad5d5e54141926500',1,'htmldata.c']]],
+  ['fs_5froot_241',['FS_ROOT',['../htmldata_8c.html#a579e616a9072321cb4da8aa2d64252f2',1,'htmldata.c']]]
 ];

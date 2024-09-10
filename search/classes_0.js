@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['acan2040_502',['ACAN2040',['../classACAN2040.html',1,'']]]
+  ['cbuswifi_156',['CBUSWiFi',['../classCBUSWiFi.html',1,'']]],
+  ['config_5ft_157',['config_t',['../CBUSWiFi_8h.html#structconfig__t',1,'']]]
 ];
